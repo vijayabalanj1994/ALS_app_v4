@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1529</width>
-    <height>789</height>
+    <width>1533</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -86,7 +86,7 @@
           <enum>QFrame::NoFrame</enum>
          </property>
          <property name="text">
-          <string>SHAP Heat-Map</string>
+          <string>ROIs detected in Image</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -134,7 +134,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="lb_cam_image">
+        <widget class="QLabel" name="lb_input_image">
          <property name="minimumSize">
           <size>
            <width>200</width>
@@ -164,7 +164,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="lb_shap_image">
+        <widget class="QLabel" name="lb_qu_path_image">
          <property name="minimumSize">
           <size>
            <width>200</width>
@@ -223,7 +223,7 @@
           <enum>QFrame::NoFrame</enum>
          </property>
          <property name="text">
-          <string>Areas Of Focus</string>
+          <string>CAM Heat-Map</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -231,7 +231,7 @@
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QLabel" name="lb_cam_circle_image">
+        <widget class="QLabel" name="lb_cam_image">
          <property name="minimumSize">
           <size>
            <width>200</width>
@@ -290,7 +290,7 @@
           <enum>QFrame::NoFrame</enum>
          </property>
          <property name="text">
-          <string>CAM Heat-Map</string>
+          <string>Input Image</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -324,136 +324,17 @@
        <string/>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="0">
-        <widget class="QLabel" name="lb_q_path_image">
-         <property name="minimumSize">
-          <size>
-           <width>400</width>
-           <height>400</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>400</width>
-           <height>400</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel {
-    background-color: #BDC3C7;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::WinPanel</enum>
-         </property>
-         <property name="text">
-          <string>Waiting for Image</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="lb_selected_focus_image">
-         <property name="minimumSize">
-          <size>
-           <width>400</width>
-           <height>400</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>400</width>
-           <height>400</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel {
-    background-color: #BDC3C7;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::WinPanel</enum>
-         </property>
-         <property name="text">
-          <string>Waiting for Image</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_16">
-         <property name="minimumSize">
-          <size>
-           <width>400</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>400</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel {
-    color: #60A3D9;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="text">
-          <string>Cells detected in the Image</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
        <item row="4" column="1">
-        <widget class="QSlider" name="s_focus_slider">
+        <widget class="QLineEdit" name="le_ROIs_focused">
          <property name="minimumSize">
           <size>
-           <width>400</width>
+           <width>30</width>
            <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>400</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="value">
-          <number>80</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="label_29">
-         <property name="minimumSize">
-          <size>
-           <width>400</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>400</width>
+           <width>30</width>
            <height>30</height>
           </size>
          </property>
@@ -464,16 +345,8 @@
            <bold>true</bold>
           </font>
          </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel {
-    color: #60A3D9;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
          <property name="text">
-          <string>Model Focus Viewer</string>
+          <string>-</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -481,16 +354,16 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="lb_focus_slider">
+        <widget class="QLineEdit" name="le_areas_focused">
          <property name="minimumSize">
           <size>
-           <width>400</width>
+           <width>30</width>
            <height>30</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>400</width>
+           <width>30</width>
            <height>30</height>
           </size>
          </property>
@@ -501,23 +374,71 @@
            <bold>true</bold>
           </font>
          </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel {
-    color: #003B73;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
          <property name="text">
-          <string>Focus Toggle - 80%</string>
+          <string>-</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
-       <item row="0" column="0" colspan="2">
+       <item row="2" column="0" colspan="4">
+        <widget class="QLabel" name="lb_cam_circle_image">
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>400</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>400</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    background-color: #BDC3C7;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::WinPanel</enum>
+         </property>
+         <property name="text">
+          <string>Waiting for Image</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>130</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Areas with ROIs</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="7">
         <widget class="QLabel" name="label_23">
          <property name="minimumSize">
           <size>
@@ -554,6 +475,318 @@
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="4">
+        <widget class="QLabel" name="label_16">
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #60A3D9;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="text">
+          <string>Areas Of Focus</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="4" colspan="3">
+        <widget class="QLabel" name="lb_selected_focus_image">
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>400</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>400</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    background-color: #BDC3C7;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::WinPanel</enum>
+         </property>
+         <property name="text">
+          <string>Waiting for Image</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2" rowspan="2">
+        <widget class="QLabel" name="label_4">
+         <property name="minimumSize">
+          <size>
+           <width>160</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    background-color:  #60A3D9;  /* Dark red */
+    color: black;               /* Black text */
+    padding: 4px;
+    border-radius: 4px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Focus Relevance - </string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3" rowspan="2">
+        <widget class="QLineEdit" name="le_focus_relevance">
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>-</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="5">
+        <widget class="QLineEdit" name="le_focus_toggle">
+         <property name="minimumSize">
+          <size>
+           <width>45</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>45</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>80</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4" colspan="3">
+        <widget class="QLabel" name="label_29">
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #60A3D9;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="text">
+          <string>Model Focus Viewer</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>130</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>No. Areas Focused -</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="6">
+        <widget class="QLabel" name="label">
+         <property name="minimumSize">
+          <size>
+           <width>135</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>135</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #003B73;
+}</string>
+         </property>
+         <property name="text">
+          <string>%</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="4" colspan="3">
+        <widget class="QSlider" name="s_focus_slider">
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="value">
+          <number>80</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <widget class="QLabel" name="lb_focus_slider">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #003B73;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="text">
+          <string>Focus Toggle -</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -1234,7 +1467,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1529</width>
+     <width>1533</width>
      <height>37</height>
     </rect>
    </property>
@@ -1264,12 +1497,10 @@ QMenuBar::item:selected {
    </property>
    <widget class="QMenu" name="menuControls">
     <property name="title">
-     <string>Controls</string>
+     <string>Options</string>
     </property>
     <addaction name="a_browse_image"/>
-    <addaction name="a_run_analysis"/>
     <addaction name="a_export_results"/>
-    <addaction name="a_clear"/>
    </widget>
    <addaction name="menuControls"/>
   </widget>

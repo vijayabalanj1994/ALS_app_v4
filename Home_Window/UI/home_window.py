@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1529, 789)
+        MainWindow.resize(1533, 800)
         MainWindow.setMinimumSize(QSize(0, 0))
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
         MainWindow.setStyleSheet(u"QMainWindow {\n"
@@ -89,29 +89,29 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.label_43, 0, 0, 1, 3)
 
-        self.lb_cam_image = QLabel(self.groupBox_3)
-        self.lb_cam_image.setObjectName(u"lb_cam_image")
-        self.lb_cam_image.setMinimumSize(QSize(200, 200))
-        self.lb_cam_image.setMaximumSize(QSize(200, 200))
-        self.lb_cam_image.setStyleSheet(u"QLabel {\n"
+        self.lb_input_image = QLabel(self.groupBox_3)
+        self.lb_input_image.setObjectName(u"lb_input_image")
+        self.lb_input_image.setMinimumSize(QSize(200, 200))
+        self.lb_input_image.setMaximumSize(QSize(200, 200))
+        self.lb_input_image.setStyleSheet(u"QLabel {\n"
 "    background-color: #BDC3C7;\n"
 "}")
-        self.lb_cam_image.setFrameShape(QFrame.WinPanel)
-        self.lb_cam_image.setAlignment(Qt.AlignCenter)
+        self.lb_input_image.setFrameShape(QFrame.WinPanel)
+        self.lb_input_image.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_4.addWidget(self.lb_cam_image, 3, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.lb_input_image, 3, 0, 1, 1)
 
-        self.lb_shap_image = QLabel(self.groupBox_3)
-        self.lb_shap_image.setObjectName(u"lb_shap_image")
-        self.lb_shap_image.setMinimumSize(QSize(200, 200))
-        self.lb_shap_image.setMaximumSize(QSize(200, 200))
-        self.lb_shap_image.setStyleSheet(u"QLabel {\n"
+        self.lb_qu_path_image = QLabel(self.groupBox_3)
+        self.lb_qu_path_image.setObjectName(u"lb_qu_path_image")
+        self.lb_qu_path_image.setMinimumSize(QSize(200, 200))
+        self.lb_qu_path_image.setMaximumSize(QSize(200, 200))
+        self.lb_qu_path_image.setStyleSheet(u"QLabel {\n"
 "    background-color: #BDC3C7;\n"
 "}")
-        self.lb_shap_image.setFrameShape(QFrame.WinPanel)
-        self.lb_shap_image.setAlignment(Qt.AlignCenter)
+        self.lb_qu_path_image.setFrameShape(QFrame.WinPanel)
+        self.lb_qu_path_image.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_4.addWidget(self.lb_shap_image, 3, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.lb_qu_path_image, 3, 1, 1, 1)
 
         self.label_36 = QLabel(self.groupBox_3)
         self.label_36.setObjectName(u"label_36")
@@ -126,17 +126,17 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.label_36, 1, 2, 1, 1)
 
-        self.lb_cam_circle_image = QLabel(self.groupBox_3)
-        self.lb_cam_circle_image.setObjectName(u"lb_cam_circle_image")
-        self.lb_cam_circle_image.setMinimumSize(QSize(200, 200))
-        self.lb_cam_circle_image.setMaximumSize(QSize(200, 200))
-        self.lb_cam_circle_image.setStyleSheet(u"QLabel {\n"
+        self.lb_cam_image = QLabel(self.groupBox_3)
+        self.lb_cam_image.setObjectName(u"lb_cam_image")
+        self.lb_cam_image.setMinimumSize(QSize(200, 200))
+        self.lb_cam_image.setMaximumSize(QSize(200, 200))
+        self.lb_cam_image.setStyleSheet(u"QLabel {\n"
 "    background-color: #BDC3C7;\n"
 "}")
-        self.lb_cam_circle_image.setFrameShape(QFrame.WinPanel)
-        self.lb_cam_circle_image.setAlignment(Qt.AlignCenter)
+        self.lb_cam_image.setFrameShape(QFrame.WinPanel)
+        self.lb_cam_image.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_4.addWidget(self.lb_cam_circle_image, 3, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.lb_cam_image, 3, 2, 1, 1)
 
         self.label_31 = QLabel(self.groupBox_3)
         self.label_31.setObjectName(u"label_31")
@@ -164,77 +164,43 @@ class Ui_MainWindow(object):
 "}")
         self.gridLayout = QGridLayout(self.groupBox)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.lb_q_path_image = QLabel(self.groupBox)
-        self.lb_q_path_image.setObjectName(u"lb_q_path_image")
-        self.lb_q_path_image.setMinimumSize(QSize(400, 400))
-        self.lb_q_path_image.setMaximumSize(QSize(400, 400))
-        self.lb_q_path_image.setStyleSheet(u"QLabel {\n"
+        self.le_ROIs_focused = QLineEdit(self.groupBox)
+        self.le_ROIs_focused.setObjectName(u"le_ROIs_focused")
+        self.le_ROIs_focused.setMinimumSize(QSize(30, 30))
+        self.le_ROIs_focused.setMaximumSize(QSize(30, 30))
+        self.le_ROIs_focused.setFont(font)
+        self.le_ROIs_focused.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.le_ROIs_focused, 4, 1, 1, 1)
+
+        self.le_areas_focused = QLineEdit(self.groupBox)
+        self.le_areas_focused.setObjectName(u"le_areas_focused")
+        self.le_areas_focused.setMinimumSize(QSize(30, 30))
+        self.le_areas_focused.setMaximumSize(QSize(30, 30))
+        self.le_areas_focused.setFont(font)
+        self.le_areas_focused.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.le_areas_focused, 3, 1, 1, 1)
+
+        self.lb_cam_circle_image = QLabel(self.groupBox)
+        self.lb_cam_circle_image.setObjectName(u"lb_cam_circle_image")
+        self.lb_cam_circle_image.setMinimumSize(QSize(400, 400))
+        self.lb_cam_circle_image.setMaximumSize(QSize(400, 400))
+        self.lb_cam_circle_image.setStyleSheet(u"QLabel {\n"
 "    background-color: #BDC3C7;\n"
 "}")
-        self.lb_q_path_image.setFrameShape(QFrame.WinPanel)
-        self.lb_q_path_image.setAlignment(Qt.AlignCenter)
+        self.lb_cam_circle_image.setFrameShape(QFrame.WinPanel)
+        self.lb_cam_circle_image.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.lb_q_path_image, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.lb_cam_circle_image, 2, 0, 1, 4)
 
-        self.lb_selected_focus_image = QLabel(self.groupBox)
-        self.lb_selected_focus_image.setObjectName(u"lb_selected_focus_image")
-        self.lb_selected_focus_image.setMinimumSize(QSize(400, 400))
-        self.lb_selected_focus_image.setMaximumSize(QSize(400, 400))
-        self.lb_selected_focus_image.setStyleSheet(u"QLabel {\n"
-"    background-color: #BDC3C7;\n"
-"}")
-        self.lb_selected_focus_image.setFrameShape(QFrame.WinPanel)
-        self.lb_selected_focus_image.setAlignment(Qt.AlignCenter)
+        self.label_3 = QLabel(self.groupBox)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setMinimumSize(QSize(120, 30))
+        self.label_3.setMaximumSize(QSize(130, 30))
+        self.label_3.setFont(font)
 
-        self.gridLayout.addWidget(self.lb_selected_focus_image, 2, 1, 1, 1)
-
-        self.label_16 = QLabel(self.groupBox)
-        self.label_16.setObjectName(u"label_16")
-        self.label_16.setMinimumSize(QSize(400, 30))
-        self.label_16.setMaximumSize(QSize(400, 30))
-        self.label_16.setFont(font)
-        self.label_16.setStyleSheet(u"QLabel {\n"
-"    color: #60A3D9;\n"
-"}")
-        self.label_16.setFrameShape(QFrame.NoFrame)
-        self.label_16.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout.addWidget(self.label_16, 1, 0, 1, 1)
-
-        self.s_focus_slider = QSlider(self.groupBox)
-        self.s_focus_slider.setObjectName(u"s_focus_slider")
-        self.s_focus_slider.setMinimumSize(QSize(400, 30))
-        self.s_focus_slider.setMaximumSize(QSize(400, 30))
-        self.s_focus_slider.setValue(80)
-        self.s_focus_slider.setOrientation(Qt.Horizontal)
-
-        self.gridLayout.addWidget(self.s_focus_slider, 4, 1, 1, 1)
-
-        self.label_29 = QLabel(self.groupBox)
-        self.label_29.setObjectName(u"label_29")
-        self.label_29.setMinimumSize(QSize(400, 30))
-        self.label_29.setMaximumSize(QSize(400, 30))
-        self.label_29.setFont(font)
-        self.label_29.setStyleSheet(u"QLabel {\n"
-"    color: #60A3D9;\n"
-"}")
-        self.label_29.setFrameShape(QFrame.NoFrame)
-        self.label_29.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout.addWidget(self.label_29, 1, 1, 1, 1)
-
-        self.lb_focus_slider = QLabel(self.groupBox)
-        self.lb_focus_slider.setObjectName(u"lb_focus_slider")
-        self.lb_focus_slider.setMinimumSize(QSize(400, 30))
-        self.lb_focus_slider.setMaximumSize(QSize(400, 30))
-        self.lb_focus_slider.setFont(font)
-        self.lb_focus_slider.setStyleSheet(u"QLabel {\n"
-"    color: #003B73;\n"
-"}")
-        self.lb_focus_slider.setFrameShape(QFrame.NoFrame)
-        self.lb_focus_slider.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout.addWidget(self.lb_focus_slider, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 4, 0, 1, 1)
 
         self.label_23 = QLabel(self.groupBox)
         self.label_23.setObjectName(u"label_23")
@@ -250,7 +216,121 @@ class Ui_MainWindow(object):
         self.label_23.setFrameShape(QFrame.WinPanel)
         self.label_23.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.label_23, 0, 0, 1, 2)
+        self.gridLayout.addWidget(self.label_23, 0, 0, 1, 7)
+
+        self.label_16 = QLabel(self.groupBox)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setMinimumSize(QSize(400, 30))
+        self.label_16.setMaximumSize(QSize(400, 30))
+        self.label_16.setFont(font)
+        self.label_16.setStyleSheet(u"QLabel {\n"
+"    color: #60A3D9;\n"
+"}")
+        self.label_16.setFrameShape(QFrame.NoFrame)
+        self.label_16.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_16, 1, 0, 1, 4)
+
+        self.lb_selected_focus_image = QLabel(self.groupBox)
+        self.lb_selected_focus_image.setObjectName(u"lb_selected_focus_image")
+        self.lb_selected_focus_image.setMinimumSize(QSize(400, 400))
+        self.lb_selected_focus_image.setMaximumSize(QSize(400, 400))
+        self.lb_selected_focus_image.setStyleSheet(u"QLabel {\n"
+"    background-color: #BDC3C7;\n"
+"}")
+        self.lb_selected_focus_image.setFrameShape(QFrame.WinPanel)
+        self.lb_selected_focus_image.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.lb_selected_focus_image, 2, 4, 1, 3)
+
+        self.label_4 = QLabel(self.groupBox)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setMinimumSize(QSize(160, 60))
+        self.label_4.setMaximumSize(QSize(160, 60))
+        font1 = QFont()
+        font1.setPointSize(12)
+        font1.setBold(True)
+        self.label_4.setFont(font1)
+        self.label_4.setStyleSheet(u"QLabel {\n"
+"    background-color:  #60A3D9;  /* Dark red */\n"
+"    color: black;               /* Black text */\n"
+"    padding: 4px;\n"
+"    border-radius: 4px;\n"
+"}")
+
+        self.gridLayout.addWidget(self.label_4, 3, 2, 2, 1)
+
+        self.le_focus_relevance = QLineEdit(self.groupBox)
+        self.le_focus_relevance.setObjectName(u"le_focus_relevance")
+        self.le_focus_relevance.setMinimumSize(QSize(60, 60))
+        self.le_focus_relevance.setMaximumSize(QSize(60, 60))
+        self.le_focus_relevance.setFont(font1)
+        self.le_focus_relevance.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.le_focus_relevance, 3, 3, 2, 1)
+
+        self.le_focus_toggle = QLineEdit(self.groupBox)
+        self.le_focus_toggle.setObjectName(u"le_focus_toggle")
+        self.le_focus_toggle.setMinimumSize(QSize(45, 30))
+        self.le_focus_toggle.setMaximumSize(QSize(45, 30))
+        self.le_focus_toggle.setFont(font)
+        self.le_focus_toggle.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.le_focus_toggle, 3, 5, 1, 1)
+
+        self.label_29 = QLabel(self.groupBox)
+        self.label_29.setObjectName(u"label_29")
+        self.label_29.setMinimumSize(QSize(400, 30))
+        self.label_29.setMaximumSize(QSize(400, 30))
+        self.label_29.setFont(font)
+        self.label_29.setStyleSheet(u"QLabel {\n"
+"    color: #60A3D9;\n"
+"}")
+        self.label_29.setFrameShape(QFrame.NoFrame)
+        self.label_29.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.label_29, 1, 4, 1, 3)
+
+        self.label_2 = QLabel(self.groupBox)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(120, 30))
+        self.label_2.setMaximumSize(QSize(130, 30))
+        self.label_2.setFont(font)
+
+        self.gridLayout.addWidget(self.label_2, 3, 0, 1, 1)
+
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(135, 30))
+        self.label.setMaximumSize(QSize(135, 30))
+        self.label.setFont(font1)
+        self.label.setStyleSheet(u"QLabel {\n"
+"    color: #003B73;\n"
+"}")
+
+        self.gridLayout.addWidget(self.label, 3, 6, 1, 1)
+
+        self.s_focus_slider = QSlider(self.groupBox)
+        self.s_focus_slider.setObjectName(u"s_focus_slider")
+        self.s_focus_slider.setMinimumSize(QSize(400, 30))
+        self.s_focus_slider.setMaximumSize(QSize(400, 30))
+        self.s_focus_slider.setValue(80)
+        self.s_focus_slider.setOrientation(Qt.Horizontal)
+
+        self.gridLayout.addWidget(self.s_focus_slider, 4, 4, 1, 3)
+
+        self.lb_focus_slider = QLabel(self.groupBox)
+        self.lb_focus_slider.setObjectName(u"lb_focus_slider")
+        self.lb_focus_slider.setMinimumSize(QSize(200, 30))
+        self.lb_focus_slider.setMaximumSize(QSize(200, 30))
+        self.lb_focus_slider.setFont(font)
+        self.lb_focus_slider.setStyleSheet(u"QLabel {\n"
+"    color: #003B73;\n"
+"}")
+        self.lb_focus_slider.setFrameShape(QFrame.NoFrame)
+        self.lb_focus_slider.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.lb_focus_slider, 3, 4, 1, 1)
 
 
         self.gridLayout_6.addWidget(self.groupBox, 0, 1, 3, 1)
@@ -372,10 +452,10 @@ class Ui_MainWindow(object):
         self.lb_prediction.setObjectName(u"lb_prediction")
         self.lb_prediction.setMinimumSize(QSize(250, 60))
         self.lb_prediction.setMaximumSize(QSize(16777215, 60))
-        font1 = QFont()
-        font1.setPointSize(16)
-        font1.setBold(True)
-        self.lb_prediction.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(16)
+        font2.setBold(True)
+        self.lb_prediction.setFont(font2)
         self.lb_prediction.setStyleSheet(u"QLabel {\n"
 "    background-color: #B71C1C;  /* Dark red */\n"
 "    color: black;               /* Black text */\n"
@@ -517,7 +597,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1529, 37))
+        self.menubar.setGeometry(QRect(0, 0, 1533, 37))
         self.menubar.setStyleSheet(u"QMenuBar {\n"
 "    background-color: #2980B9;\n"
 "    color: white;\n"
@@ -546,9 +626,7 @@ class Ui_MainWindow(object):
 
         self.menubar.addAction(self.menuControls.menuAction())
         self.menuControls.addAction(self.a_browse_image)
-        self.menuControls.addAction(self.a_run_analysis)
         self.menuControls.addAction(self.a_export_results)
-        self.menuControls.addAction(self.a_clear)
 
         self.retranslateUi(MainWindow)
 
@@ -562,20 +640,28 @@ class Ui_MainWindow(object):
         self.a_export_results.setText(QCoreApplication.translate("MainWindow", u"Export Results", None))
         self.a_clear.setText(QCoreApplication.translate("MainWindow", u"clear", None))
         self.groupBox_3.setTitle("")
-        self.label_33.setText(QCoreApplication.translate("MainWindow", u"SHAP Heat-Map", None))
+        self.label_33.setText(QCoreApplication.translate("MainWindow", u"ROIs detected in Image", None))
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"Model Focus Images", None))
+        self.lb_input_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
+        self.lb_qu_path_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
+        self.label_36.setText(QCoreApplication.translate("MainWindow", u"CAM Heat-Map", None))
         self.lb_cam_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
-        self.lb_shap_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
-        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Areas Of Focus", None))
-        self.lb_cam_circle_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
-        self.label_31.setText(QCoreApplication.translate("MainWindow", u"CAM Heat-Map", None))
+        self.label_31.setText(QCoreApplication.translate("MainWindow", u"Input Image", None))
         self.groupBox.setTitle("")
-        self.lb_q_path_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
-        self.lb_selected_focus_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Cells detected in the Image", None))
-        self.label_29.setText(QCoreApplication.translate("MainWindow", u"Model Focus Viewer", None))
-        self.lb_focus_slider.setText(QCoreApplication.translate("MainWindow", u"Focus Toggle - 80%", None))
+        self.le_ROIs_focused.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.le_areas_focused.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.lb_cam_circle_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Areas with ROIs", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"Model Inspector ", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Areas Of Focus", None))
+        self.lb_selected_focus_image.setText(QCoreApplication.translate("MainWindow", u"Waiting for Image", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Focus Relevance - ", None))
+        self.le_focus_relevance.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.le_focus_toggle.setText(QCoreApplication.translate("MainWindow", u"80", None))
+        self.label_29.setText(QCoreApplication.translate("MainWindow", u"Model Focus Viewer", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"No. Areas Focused -", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"%", None))
+        self.lb_focus_slider.setText(QCoreApplication.translate("MainWindow", u"Focus Toggle -", None))
         self.groupBox_2.setTitle("")
         self.label_21.setText("")
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"Control (Healthy) :-", None))
@@ -592,6 +678,6 @@ class Ui_MainWindow(object):
         self.label_47.setText(QCoreApplication.translate("MainWindow", u"Region:", None))
         self.groupBox_5.setTitle("")
         self.label_48.setText(QCoreApplication.translate("MainWindow", u"Notes:", None))
-        self.menuControls.setTitle(QCoreApplication.translate("MainWindow", u"Controls", None))
+        self.menuControls.setTitle(QCoreApplication.translate("MainWindow", u"Options", None))
     # retranslateUi
 

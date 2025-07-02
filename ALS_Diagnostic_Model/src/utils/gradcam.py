@@ -93,25 +93,28 @@ def extract_color_masks(qpath_image):
     # Convert to PIL images for visualization
     return {k: Image.fromarray((v > 0).astype(np.uint8) * 255) for k, v in masks.items()}
 
-def quantify_focus(circles, cells_mask):
+def quantify_focus(circles, cells_mask, border_exclude=10):
+    # Convert PIL image to binary NumPy mask
+    cell_mask_np = np.array(cells_mask.convert("L")) > 0  # shape: (H, W)
 
-    cell_mask_np = np.array(cells_mask.convert("L")) > 0  # binary mask
+    # Exclude borders
+    h, w = cell_mask_np.shape
+    cell_mask_np[:border_exclude, :] = 0              # Top
+    cell_mask_np[-border_exclude:, :] = 0             # Bottom
+    cell_mask_np[:, :border_exclude] = 0              # Left
+    cell_mask_np[:, -border_exclude:] = 0             # Right
 
     hit_count, miss_count = 0, 0
     for cx, cy, r in circles:
-        # Create a circular mask for each hit
         circle_mask = np.zeros_like(cell_mask_np, dtype=np.uint8)
         cv2.circle(circle_mask, (cx, cy), r, 1, -1)
 
-        # Check if any cell border overlaps
         if np.any(circle_mask & cell_mask_np):
             hit_count += 1
         else:
             miss_count += 1
 
-        if (hit_count + miss_count) > 0:
-            precision = hit_count / (hit_count + miss_count)
-        else:
-            precision = 0.0
-
+    precision = hit_count / (hit_count + miss_count) if (hit_count + miss_count) > 0 else 0.0
     return hit_count, miss_count, precision
+
+

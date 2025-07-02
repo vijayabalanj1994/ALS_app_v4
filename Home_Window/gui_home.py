@@ -20,14 +20,15 @@ class GuiHome(qtw.QMainWindow, Ui_MainWindow):
 
         self.input_image_path = ""
         self.q_path_image_path = r"C:\Users\vijay\Neuro_BioMark\ALS_app_v4\Dataset\ALS_QuPath_Images"
+        self.q_path_img = None
         self.a_browse_image.triggered.connect(self.browse_image)
 
         self.cam, self.reconstructed_image = None, None
-        self.a_run_analysis.triggered.connect(self.run_analysis)
 
+        #self.a_run_analysis.triggered.connect(self.run_analysis)
         self.s_focus_slider.valueChanged.connect(self.update_cam_mask)
-
-        self.a_clear.triggered.connect(self.clear_GUI)
+        self.le_focus_toggle.textChanged.connect(self.update_slider)
+        #self.a_clear.triggered.connect(self.clear_GUI)
 
     @qtc.Slot()
     def browse_image(self):
@@ -47,10 +48,9 @@ class GuiHome(qtw.QMainWindow, Ui_MainWindow):
             try:
                 pil_image = Image.open(self.input_image_path)
                 pixmap = pil2pixmap(pil_image)
-
-                self.lb_q_path_image.setPixmap(
+                self.lb_input_image.setPixmap(
                     pixmap.scaled(
-                        self.lb_q_path_image.size()
+                        self.lb_input_image.size()
                     )
                 )
 
@@ -60,18 +60,19 @@ class GuiHome(qtw.QMainWindow, Ui_MainWindow):
                 self.lb_region.setText(region)
 
                 self.q_path_image_path = self.q_path_image_path + rf"\{int(image_no)}.tif"
-                pil_image = Image.open(self.q_path_image_path)
-                pixmap = pil2pixmap(pil_image)
-
-                self.lb_q_path_image.setPixmap(
+                self.q_path_img = Image.open(self.q_path_image_path)
+                pixmap = pil2pixmap(self.q_path_img)
+                self.lb_qu_path_image.setPixmap(
                     pixmap.scaled(
-                        self.lb_q_path_image.size()
+                        self.lb_input_image.size()
                     )
                 )
 
+                self.run_analysis()
+
             except Exception as e:
                 print(e)
-                self.lb_q_path_image.setText("Unable to load image.")
+                self.lb_input_image.setText("Unable to load image.")
 
 
     def update_progress_bar(self, results:list):
@@ -127,7 +128,7 @@ class GuiHome(qtw.QMainWindow, Ui_MainWindow):
         )
 
         self.s_focus_slider.setValue(80)
-        filtered_image, circles = generate_gradcam_circles(self.cam, self.reconstructed_image.copy(), threshold=0.8)
+        filtered_image, circles = generate_gradcam_circles(self.cam, self.q_path_img.copy(), threshold=0.8)
         pixmap = pil2pixmap(filtered_image)
         self.lb_cam_circle_image.setPixmap(
             pixmap.scaled(
@@ -135,10 +136,11 @@ class GuiHome(qtw.QMainWindow, Ui_MainWindow):
             )
         )
 
-        qpath_img = Image.open(self.q_path_image_path)
-        cells_mask = extract_color_masks(qpath_img)["yellow"]
+        cells_mask = extract_color_masks(self.q_path_img)["yellow"]
         hits, misses, precision = quantify_focus(circles, cells_mask)
-        print(f"Model Focus Hits: {hits}, Misses: {misses}, Precision: {precision}")
+        self.le_areas_focused.setText(str(hits+misses))
+        self.le_ROIs_focused.setText(str(hits))
+        self.le_focus_relevance.setText(f"{precision:.2f}")
 
         self.s_focus_slider.setValue(80)
         masked_image = generate_gradcam_focus_mask(self.cam, self.reconstructed_image.copy(), threshold=0.8)
@@ -149,16 +151,22 @@ class GuiHome(qtw.QMainWindow, Ui_MainWindow):
             )
         )
 
+    @qtc.Slot()
+    def update_slider(self):
+
+        value = int(self.le_focus_toggle.text())
+        self.s_focus_slider.setValue(value)
 
     @qtc.Slot()
     def update_cam_mask(self):
+
         self.lb_cam_circle_image.clear()
         self.lb_selected_focus_image.clear()
-        self.lb_focus_slider.setText(f"Focus Toggle - {self.s_focus_slider.value()}%")
+        self.le_focus_toggle.setText(f"{self.s_focus_slider.value()}")
         threshold = self.s_focus_slider.value()/100
 
 
-        filtered_image, circles = generate_gradcam_circles(self.cam, self.reconstructed_image.copy(), threshold=threshold)
+        filtered_image, circles = generate_gradcam_circles(self.cam, self.q_path_img.copy(), threshold=threshold)
         pixmap = pil2pixmap(filtered_image)
         self.lb_cam_circle_image.setPixmap(
             pixmap.scaled(
@@ -169,7 +177,9 @@ class GuiHome(qtw.QMainWindow, Ui_MainWindow):
         qpath_img = Image.open(self.q_path_image_path)
         cells_mask = extract_color_masks(qpath_img)["yellow"]
         hits, misses, precision = quantify_focus(circles, cells_mask)
-        print(f"Model Focus Hits: {hits}, Misses: {misses}, Precision: {precision}")
+        self.le_areas_focused.setText(str(hits+misses))
+        self.le_ROIs_focused.setText(str(hits))
+        self.le_focus_relevance.setText(f"{precision:.2f}")
 
         masked_image = generate_gradcam_focus_mask(self.cam, self.reconstructed_image.copy(), threshold=threshold)
         pixmap = pil2pixmap(masked_image)
@@ -183,7 +193,8 @@ class GuiHome(qtw.QMainWindow, Ui_MainWindow):
     def clear_GUI(self):
         self.input_image_path = ""
         self.q_path_image_path = r"C:\Users\vijay\Neuro_BioMark\ALS_app_v4\Dataset\ALS_QuPath_Images"
-        self.lb_q_path_image.setText("Upload Image")
+        self.qpath_img = None
+        self.lb_input_image.setText("Upload Image")
         self.lb_cam_image.setText("Waiting for model to run...")
         self.lb_cam_circle_image.setText("Waiting for model to run...")
         self.lb_selected_focus_image.setText("Waiting for model to run...")
